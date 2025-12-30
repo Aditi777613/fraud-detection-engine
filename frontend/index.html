@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection Engine | Real-Time AI Monitoring</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">🛡️</div>
+                <div class="logo-text">
+                    <h1 class="logo-title">Fraud Detection Engine</h1>
+                    <p class="logo-subtitle">Powered by Confluent Cloud & Google AI</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="connection-badge" id="connection-badge">
+                    <span class="status-dot" id="status-dot"></span>
+                    <span class="status-text" id="status-text">Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card primary">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="total-transactions">0</div>
+                    <div class="stat-label">Total Transactions</div>
+                    <div class="stat-change positive">↑ Live</div>
+                </div>
+            </div>
+
+            <div class="stat-card danger">
+                <div class="stat-icon">🚨</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="total-alerts">0</div>
+                    <div class="stat-label">Fraud Alerts</div>
+                    <div class="stat-change" id="alert-change">0 new</div>
+                </div>
+            </div>
+
+            <div class="stat-card warning">
+                <div class="stat-icon">📈</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="fraud-rate">0.00%</div>
+                    <div class="stat-label">Fraud Detection Rate</div>
+                    <div class="stat-change neutral" id="rate-trend">Stable</div>
+                </div>
+            </div>
+
+            <div class="stat-card success">
+                <div class="stat-icon">💰</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="amount-flagged">$0</div>
+                    <div class="stat-label">Amount Protected</div>
+                    <div class="stat-change positive">↑ Secured</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            <!-- Fraud Alerts Section -->
+            <div class="panel alert-panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span class="panel-icon">🚨</span>
+                        <h2>Real-Time Fraud Alerts</h2>
+                    </div>
+                    <div class="panel-badge" id="alert-count-badge">0 Active</div>
+                </div>
+                <div class="panel-body">
+                    <div class="alerts-container" id="alerts-container">
+                        <div class="empty-state">
+                            <div class="empty-icon">🔍</div>
+                            <p>No fraud detected yet</p>
+                            <small>System is monitoring all transactions</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Chart -->
+            <div class="panel chart-panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span class="panel-icon">📊</span>
+                        <h2>Fraud Trend Analysis</h2>
+                    </div>
+                    <div class="chart-controls">
+                        <button class="chart-btn active">Hourly</button>
+                        <button class="chart-btn">Daily</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <canvas id="alertsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction Stream -->
+        <div class="panel transaction-panel">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <span class="panel-icon">💳</span>
+                    <h2>Live Transaction Stream</h2>
+                </div>
+                <div class="stream-indicator">
+                    <span class="pulse-dot"></span>
+                    <span>Streaming Live</span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="transaction-header">
+                    <div class="th-col">Transaction ID</div>
+                    <div class="th-col">Merchant</div>
+                    <div class="th-col">Category</div>
+                    <div class="th-col">Amount</div>
+                    <div class="th-col">Status</div>
+                    <div class="th-col">Time</div>
+                </div>
+                <div class="transactions-container" id="transactions-container">
+                    <div class="empty-state">
+                        <div class="empty-icon">⏳</div>
+                        <p>Waiting for transactions...</p>
+                        <small>Stream will appear here in real-time</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Built for Google Cloud AI Partner Catalyst Hackathon</p>
+                <div class="tech-badges">
+                    <span class="tech-badge">Confluent Cloud</span>
+                    <span class="tech-badge">Vertex AI</span>
+                    <span class="tech-badge">Gemini AI</span>
+                    <span class="tech-badge">FastAPI</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

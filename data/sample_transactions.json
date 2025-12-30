@@ -1,0 +1,62 @@
+[
+  {
+    "transaction_id": "TXN_001",
+    "user_id": "USER_0042",
+    "amount": 45.99,
+    "merchant": "Starbucks",
+    "merchant_category": "food",
+    "location": "New York, NY",
+    "timestamp": "2025-01-15T08:30:00",
+    "is_fraud": false,
+    "device_id": "DEVICE_1234",
+    "ip_address": "192.168.1.100"
+  },
+  {
+    "transaction_id": "TXN_002",
+    "user_id": "USER_0042",
+    "amount": 3500.00,
+    "merchant": "Casino Royal",
+    "merchant_category": "gambling",
+    "location": "Las Vegas, NV",
+    "timestamp": "2025-01-15T03:15:00",
+    "is_fraud": true,
+    "device_id": "DEVICE_9999",
+    "ip_address": "45.78.123.45"
+  },
+  {
+    "transaction_id": "TXN_003",
+    "user_id": "USER_0123",
+    "amount": 125.50,
+    "merchant": "Amazon",
+    "merchant_category": "online",
+    "location": "Seattle, WA",
+    "timestamp": "2025-01-15T14:22:00",
+    "is_fraud": false,
+    "device_id": "DEVICE_5678",
+    "ip_address": "192.168.1.105"
+  },
+  {
+    "transaction_id": "TXN_004",
+    "user_id": "USER_0056",
+    "amount": 8900.00,
+    "merchant": "Crypto Exchange",
+    "merchant_category": "cryptocurrency",
+    "location": "Unknown",
+    "timestamp": "2025-01-15T02:45:00",
+    "is_fraud": true,
+    "device_id": "DEVICE_7777",
+    "ip_address": "123.45.67.89"
+  },
+  {
+    "transaction_id": "TXN_005",
+    "user_id": "USER_0089",
+    "amount": 67.80,
+    "merchant": "Shell Gas",
+    "merchant_category": "fuel",
+    "location": "Houston, TX",
+    "timestamp": "2025-01-15T09:00:00",
+    "is_fraud": false,
+    "device_id": "DEVICE_2345",
+    "ip_address": "192.168.2.50"
+  }
+]
