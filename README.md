@@ -170,10 +170,6 @@ Run the demo to see the system in action:
 python scripts/demo_traffic.py --duration 60 --rate 2 --fraud-rate 0.2
 ```
 
-## 🎬 Demo Video Script
-
-Located in `video/demo_script.txt` with guidance for creating your 3-minute submission video.
-
 ## 📈 Performance
 
 - **Latency**: < 100ms for fraud detection
