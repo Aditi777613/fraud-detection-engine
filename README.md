@@ -124,8 +124,6 @@ fraud-detection-engine/
 │   ├── setup.sh
 │   ├── train_model.py
 │   └── demo_traffic.py
-└── models/                 # Trained models
-```
 
 ## 🔑 Environment Variables
 
