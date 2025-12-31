@@ -1,6 +1,6 @@
 // Configuration
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const WS_URL = import.meta.env.VITE_WS_URL;
+const API_BASE_URL = "https://fraud-detection-engine-d30a.onrender.com";
+const WS_URL = "wss://fraud-detection-engine-d30a.onrender.com/ws";
 
 // State
 let ws = null;
