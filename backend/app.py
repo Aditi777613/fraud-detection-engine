@@ -1,5 +1,5 @@
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from backend.routes import router, set_data_references
+from routes import router, set_data_references
 from fastapi.middleware.cors import CORSMiddleware
 from confluent_kafka import Consumer
 import json
