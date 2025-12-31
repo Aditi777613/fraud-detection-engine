@@ -1,0 +1,31 @@
+name: Kafka Producer Job
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # every 10 minutes
+  workflow_dispatch:
+
+jobs:
+  run-producer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r backend/requirements.txt
+
+      - name: Run producer
+        env:
+          BOOTSTRAP_SERVERS: ${{ secrets.BOOTSTRAP_SERVERS }}
+          SASL_USERNAME: ${{ secrets.SASL_USERNAME }}
+          SASL_PASSWORD: ${{ secrets.SASL_PASSWORD }}
+          SECURITY_PROTOCOL: SASL_SSL
+          SASL_MECHANISM: PLAIN
+        run: |
+          timeout 120 python src/producer.py
