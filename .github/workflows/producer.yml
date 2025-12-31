@@ -1,16 +1,24 @@
 name: Kafka Producer Job
 
 on:
-  schedule:
-    - cron: "*/10 * * * *"   # every 10 minutes
   workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"   # every 5 minutes
 
 jobs:
   run-producer:
     runs-on: ubuntu-latest
 
+    env:
+      KAFKA_BOOTSTRAP_SERVERS: ${{ secrets.KAFKA_BOOTSTRAP_SERVERS }}
+      KAFKA_API_KEY: ${{ secrets.KAFKA_API_KEY }}
+      KAFKA_API_SECRET: ${{ secrets.KAFKA_API_SECRET }}
+      KAFKA_SECURITY_PROTOCOL: SASL_SSL
+      KAFKA_SASL_MECHANISM: PLAIN
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -18,14 +26,10 @@ jobs:
           python-version: "3.10"
 
       - name: Install dependencies
-        run: pip install -r backend/requirements.txt
-
-      - name: Run producer
-        env:
-          BOOTSTRAP_SERVERS: ${{ secrets.BOOTSTRAP_SERVERS }}
-          SASL_USERNAME: ${{ secrets.SASL_USERNAME }}
-          SASL_PASSWORD: ${{ secrets.SASL_PASSWORD }}
-          SECURITY_PROTOCOL: SASL_SSL
-          SASL_MECHANISM: PLAIN
         run: |
-          timeout 120 python src/producer.py
+          pip install --upgrade pip
+          pip install -r backend/requirements.txt
+
+      - name: Run Kafka producer (bounded)
+        run: |
+          python src/producer.py
